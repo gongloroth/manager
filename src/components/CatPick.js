@@ -23,14 +23,6 @@ class CatPick extends Component {
   }
 
    render() {
-      if (this.props.loadingCategories) {
-       return (
-         <View style={{ flex: 1 }}>
-           <ActivityIndicator />
-         </View>
-       );
-     }
-
       return (
         <View>
           <Picker

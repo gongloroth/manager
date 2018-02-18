@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from './common';
@@ -34,10 +34,12 @@ class LoginForm extends Component {
   }
 
   renderButton() {
+    console.log(this.props.loading);
     if (this.props.loading) {
       return <Spinner size="large" />;
     }
 
+    console.log(this.props.loading);
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
         Login
@@ -49,18 +51,15 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss()} accessible={false}>
             <Input
               label="Email"
               placeholder="email@gmail.com"
               onChangeText={this.onEmailChange.bind(this)}
               value={this.props.email}
             />
-          </TouchableWithoutFeedback>
         </CardSection>
 
         <CardSection>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss()} accessible={false}>
             <Input
               secureTextEntry
               label="Password"
@@ -68,7 +67,6 @@ class LoginForm extends Component {
               onChangeText={this.onPasswordChange.bind(this)}
               value={this.props.password}
             />
-          </TouchableWithoutFeedback>
         </CardSection>
 
         {this.renderError()}
