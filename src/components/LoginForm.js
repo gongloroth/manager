@@ -49,7 +49,7 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss()} accessible={false}>
             <Input
               label="Email"
               placeholder="email@gmail.com"
@@ -60,7 +60,7 @@ class LoginForm extends Component {
         </CardSection>
 
         <CardSection>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss()} accessible={false}>
             <Input
               secureTextEntry
               label="Password"
